@@ -1,69 +1,95 @@
+window.alert('You are going to play "Rock, Paper or Scissors" against the computer! \n\n The first player to reach 5 points is the winner of the match. \n\n Click "OK" to begin')
+
 function getComputerChoice() {
-    const options = ['rock', 'paper', 'scissors']
-    const randomChoice = Math.floor(Math.random() * options.length)
-    return options[randomChoice] 
+    const options = ['Rock', 'Paper', 'Scissors']
+    return options[Math.floor(Math.random() * options.length)] 
 }
 
-
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection == 'rock' && computerSelection == 'rock') {
+    if (playerSelection == 'Rock' &&
+    computerSelection == 'Rock') {
         return 'Tie!'
-    } else if (playerSelection == 'rock' && computerSelection == 'paper') {
+    } else if (playerSelection == 'Rock' &&
+    computerSelection == 'Paper') {
         return 'You Lose! Paper beats Rock'
-    } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
+    } else if (playerSelection == 'Rock' &&
+    computerSelection == 'Scissors') {
         return 'You Win! Rock beats Scissors'
-    } else if (playerSelection == 'paper' && computerSelection == 'rock') {
+    } else if (playerSelection == 'Paper' &&
+    computerSelection == 'Rock') {
         return 'You Win! Paper beats Rock'
-    } else if  (playerSelection == 'paper' && computerSelection == 'paper') {
+    } else if  (playerSelection == 'Paper' &&
+    computerSelection == 'Paper') {
         return 'Tie!'
-    } else if  (playerSelection == 'paper' && computerSelection == 'scissors') {
+    } else if  (playerSelection == 'Paper' &&
+    computerSelection == 'Scissors') {
         return 'You Lose! Scissors beats Paper'
-    } else if  (playerSelection == 'scissors' && computerSelection == 'rock') {
+    } else if  (playerSelection == 'Scissors' &&
+    computerSelection == 'Rock') {
         return 'You Lose! Rock beats Scissors'
-    } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+    } else if (playerSelection == 'Scissors' &&
+    computerSelection == 'Paper') {
         return 'You Win! Scissors beats Paper'
-    } else if (playerSelection == 'scissors' && computerSelection == 'scissors') {
+    } else if (playerSelection == 'Scissors' &&
+    computerSelection == 'Scissors') {
         return 'Tie!'
     } else {
         return 'Oops! Seems that you enetered an invalid name'
     }
 }
 
-
 let playerScore = 0
 let computerScore = 0
 
+const body = document.querySelector('body')
+
+const score = document.createElement('div')
+score.textContent =
+`Player Score: ${playerScore} - Computer Score: ${computerScore}`
+
+const select = document.createElement('div')
+select.textContent = 'Select an option:'
 
 const rock = document.createElement('button')
 rock.textContent = 'Rock'
-rock.addEventListener('click', () => {
-    playerSelection = 'rock'
-    computerSelection = getComputerChoice()
-    container1.textContent = playRound(playerSelection, computerSelection)
-})
 
 const paper = document.createElement('button')
 paper.textContent = 'Paper'
-paper.addEventListener('click', () => {
-    playerSelection = 'paper'
-    computerSelection = getComputerChoice()
-    container1.textContent = playRound(playerSelection, computerSelection)
-})
 
 const scissors = document.createElement('button')
 scissors.textContent = 'Scissors'
-scissors.addEventListener('click', () => {
-    playerSelection = 'scissors'
-    computerSelection = getComputerChoice()
-    container1.textContent = playRound(playerSelection, computerSelection)
-})
 
-const body = document.querySelector('body')
+const computerSelected = document.createElement('div')
 
-const container1 = document.createElement('div')
+const result = document.createElement('div')
 
+body.appendChild(score)
+body.appendChild(select)
 body.appendChild(rock)
 body.appendChild(paper)
 body.appendChild(scissors)
-body.appendChild(container1)
+body.appendChild(computerSelected)
+body.appendChild(result)
 
+const buttons = document.querySelectorAll('button')
+
+buttons.forEach(button => button.addEventListener('click', () => {
+    playerSelection = button.textContent
+    computerSelection = getComputerChoice()
+    computerSelected.textContent =
+    `Computer Selection: ${computerSelection}`
+    result.textContent =
+    playRound(playerSelection, computerSelection)
+    if (playRound(playerSelection, computerSelection).slice(0, 7)
+    === 'You Win') playerScore += 1
+    if (playRound(playerSelection, computerSelection).slice(0, 8)
+    === 'You Lose') computerScore += 1
+    score.textContent =
+    `Player Score: ${playerScore} -
+    Computer Score: ${computerScore}`
+    if (playerScore === 5) {
+        alert('PLAYER WINS!')
+    } else if (computerScore === 5) { 
+        alert('COMPUTER WINS!')
+    }
+}))
