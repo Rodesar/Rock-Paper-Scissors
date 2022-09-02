@@ -132,8 +132,22 @@ buttons.forEach(button => button.addEventListener('click', () => {
         === 'You Lose') computerCount += 1;
     scoring.textContent = `${playerCount} - ${computerCount}`
     if (playerCount === 5) {
-        alert('PLAYER WINS!');
+        description.textContent = 'PLAYER WINS!';
+        description.classList.add('winnerPlayer');
+        rock.disabled = true;
+        rock.classList.add('buttonDisable');
+        paper.disabled = true;
+        paper.classList.add('buttonDisable');
+        scissors.disabled = true;
+        scissors.classList.add('buttonDisable');
     } else if (computerCount === 5) { 
-        alert('COMPUTER WINS!');
+        description.textContent = 'COMPUTER WINS!';
+        description.classList.add('winnerComputer');
+        rock.disabled = true;
+        rock.classList.add('buttonDisable');
+        paper.disabled = true;
+        paper.classList.add('buttonDisable');
+        scissors.disabled = true;
+        scissors.classList.add('buttonDisable');
     }
 }));
