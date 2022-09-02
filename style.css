@@ -1,0 +1,162 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: rgb(28, 34, 46);
+    font-family: 'Armata', sans-serif;
+    color: rgb(255, 196, 107);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+}
+
+.title {
+    font-family: 'Audiowide', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 800px;
+    height: 90px;
+    border-radius: 30px;
+    font-size: 45px;
+    background-color: rgb(92, 122, 122);
+    color: rgb(91, 255, 145);
+    text-shadow: 2px 4px rgb(182, 139, 74);
+}
+
+.description {
+    font-size: 35px;
+    margin-top: 60px;
+    margin-bottom: 45px;
+    font-weight: bold;
+}
+
+.scoreContainer {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.containerComputer,
+.containerPlayer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.computerScore,
+.playerScore {
+    width: 150px;
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: solid 1px rgb(182, 139, 74);
+}
+
+.scoring {
+    width: 140px;
+    text-align: center;
+    font-size: 50px;
+    text-shadow: 0 0 5px white;
+}
+
+.select {
+    margin-bottom: 15px;
+}
+
+button {
+    font-weight: bold;
+    background: none;
+    border-radius: 10px;
+    font-size: 0;
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+button:hover {
+    scale: 1.1;
+}
+button:active {
+    scale: 1;
+}
+
+.rock {
+    margin-right: 30px;
+    background: url(./img/hand-back-fist-regular.svg) center no-repeat;
+    background-color: rgb(192, 101, 101);
+    border: solid 3px rgb(192, 101, 101);
+    box-shadow: 0 0 5px rgb(192, 101, 101);
+    color: rgb(192, 101, 101);
+}
+
+.paper {
+    margin-right: 30px;
+    background: url(./img/hand-regular.svg) center no-repeat;
+    background-color: rgb(255, 244, 207);
+    border: solid 3px rgb(255, 244, 207);
+    box-shadow: 0 0 5px rgb(255, 244, 207);
+    color: rgb(255, 244, 207);
+}
+
+.scissors {
+    background: url(./img/hand-scissors-regular.svg) center no-repeat;
+    background-color: rgb(137, 237, 255);
+    border: solid 3px rgb(137, 237, 255);
+    box-shadow: 0 0 5px rgb(137, 237, 255);
+    color: rgb(137, 237, 255);
+}
+
+.result {
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+.buttonDisable {
+    background-color: rgb(68, 78, 100);
+    border: solid 3px rgb(68, 78, 100);
+    box-shadow: none;
+    cursor: auto;
+}
+.buttonDisable:hover {
+    scale: 1;
+}
+
+.playAgain {
+    color: rgb(121, 255, 152);
+    text-shadow: 0 0 3px rgb(121, 255, 152);
+    border: solid 3px rgb(121, 255, 152);
+    box-shadow: none;
+    margin-top: 30px;
+    font-size: 20px;
+    width: 120px;
+    height: 60px;
+}
+
+.winnerPlayer {
+    color: rgb(0, 195, 255);
+    font-weight: bold;
+    text-shadow: 0 0 10px rgb(67, 211, 255);
+}
+
+.winnerComputer {
+    color: rgb(252, 76, 76);
+    font-weight: bold;
+    text-shadow: 0 0 10px rgb(255, 117, 117);
+}
+
+.author {
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(0, 195, 255);
+    text-shadow: 0 0 10px rgb(67, 211, 255);
+}
