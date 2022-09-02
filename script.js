@@ -36,13 +36,10 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-let playerScore = 0;
-let computerScore = 0;
+let playerCount = 0;
+let computerCount = 0;
 
 const body = document.querySelector('body');
-
-const buttonContainer = document.createElement('div');
-buttonContainer.classList.add('buttonContainer');
 
 const title = document.createElement('h1');
 title.textContent = 'ROCK, PAPER OR SCISSORS!';
@@ -52,14 +49,23 @@ const description = document.createElement('div');
 description.textContent = 'First to score 5 points wins the game';
 description.classList.add('description');
 
-const score = document.createElement('div');
-score.textContent = `Player Score: ${playerScore} - 
-    Computer Score: ${computerScore}`;
-score.classList.add('score');
+const scoreContainer = document.createElement('div');
+scoreContainer.classList.add('scoreContainer');
+
+const playerScore = document.createElement('div');
+playerScore.textContent = 'Player: 0';
+playerScore.classList.add('playerScore');
+
+const computerScore = document.createElement('div');
+computerScore.textContent = 'Computer: 0';
+computerScore.classList.add('computerScore');
 
 const select = document.createElement('div');
 select.textContent = 'Select an option:';
 select.classList.add('select');
+
+const buttonContainer = document.createElement('div');
+buttonContainer.classList.add('buttonContainer');
 
 const rock = document.createElement('button');
 rock.textContent = 'Rock';
@@ -81,7 +87,9 @@ result.classList.add('result');
 
 body.appendChild(title);
 body.appendChild(description);
-body.appendChild(score);
+body.appendChild(scoreContainer);
+scoreContainer.appendChild(playerScore);
+scoreContainer.appendChild(computerScore);
 body.appendChild(select);
 body.appendChild(buttonContainer);
 buttonContainer.appendChild(rock);
@@ -100,14 +108,14 @@ buttons.forEach(button => button.addEventListener('click', () => {
     result.textContent = playRound(playerSelection,
         computerSelection);
     if (playRound(playerSelection, computerSelection).slice(0, 7)
-        === 'You Win') playerScore += 1;
+        === 'You Win') playerCount += 1;
     if (playRound(playerSelection, computerSelection).slice(0, 8)
-        === 'You Lose') computerScore += 1;
-    score.textContent = `Player Score: ${playerScore} -
-        Computer Score: ${computerScore}`;
-    if (playerScore === 5) {
+        === 'You Lose') computerCount += 1;
+    playerScore.textContent = `Player: ${playerCount}`;
+    computerScore.textContent = `Computer: ${computerCount}`;
+    if (playerCount === 5) {
         alert('PLAYER WINS!');
-    } else if (computerScore === 5) { 
+    } else if (computerCount === 5) { 
         alert('COMPUTER WINS!');
     }
 }));
