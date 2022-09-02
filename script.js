@@ -49,6 +49,20 @@ const description = document.createElement('div');
 description.textContent = 'First to score 5 points wins the game';
 description.classList.add('description');
 
+const playerSelected = document.createElement('div');
+playerSelected.textContent = '?';
+playerSelected.classList.add('playerSelected');
+
+const computerSelected = document.createElement('div');
+computerSelected.textContent = '?'
+computerSelected.classList.add('computerSelected');
+
+const containerPlayer = document.createElement('div');
+containerPlayer.classList.add('containerPlayer');
+
+const containerComputer = document.createElement('div');
+containerComputer.classList.add('containerComputer');
+
 const scoreContainer = document.createElement('div');
 scoreContainer.classList.add('scoreContainer');
 
@@ -79,23 +93,23 @@ const scissors = document.createElement('button');
 scissors.textContent = 'Scissors';
 scissors.classList.add('scissors');
 
-const computerSelected = document.createElement('div');
-computerSelected.classList.add('computerSelected');
-
 const result = document.createElement('div');
 result.classList.add('result');
 
 body.appendChild(title);
 body.appendChild(description);
 body.appendChild(scoreContainer);
-scoreContainer.appendChild(playerScore);
-scoreContainer.appendChild(computerScore);
+scoreContainer.appendChild(containerPlayer);
+scoreContainer.appendChild(containerComputer);
+containerPlayer.appendChild(playerSelected);
+containerPlayer.appendChild(playerScore);
+containerComputer.appendChild(computerSelected);
+containerComputer.appendChild(computerScore);
 body.appendChild(select);
 body.appendChild(buttonContainer);
 buttonContainer.appendChild(rock);
 buttonContainer.appendChild(paper);
 buttonContainer.appendChild(scissors);
-body.appendChild(computerSelected);
 body.appendChild(result);
 
 const buttons = document.querySelectorAll('button');
@@ -103,8 +117,8 @@ const buttons = document.querySelectorAll('button');
 buttons.forEach(button => button.addEventListener('click', () => {
     playerSelection = button.textContent;
     computerSelection = getComputerChoice();
-    computerSelected.textContent = 
-        `Computer Selection: ${computerSelection}`;
+    playerSelected.textContent = button.textContent;
+    computerSelected.textContent = computerSelection;
     result.textContent = playRound(playerSelection,
         computerSelection);
     if (playRound(playerSelection, computerSelection).slice(0, 7)
