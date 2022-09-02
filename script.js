@@ -104,6 +104,13 @@ const playAgain = document.createElement('button');
 playAgain.textContent = 'Play Again';
 playAgain.classList.add('playAgain');
 
+const author = document.createElement('div');
+author.classList.add('author');
+const authorLink = document.createElement('a');
+author.textContent = 'By ';
+authorLink.setAttribute('href', `https://github.com/rolastic`);
+authorLink.textContent = 'rolastic';
+
 body.appendChild(title);
 body.appendChild(description);
 body.appendChild(scoreContainer);
@@ -120,6 +127,8 @@ buttonContainer.appendChild(rock);
 buttonContainer.appendChild(paper);
 buttonContainer.appendChild(scissors);
 body.appendChild(result);
+body.appendChild(author);
+author.appendChild(authorLink);
 
 const buttons = document.querySelectorAll('button');
 
@@ -144,7 +153,7 @@ buttons.forEach(button => button.addEventListener('click', () => {
         paper.classList.add('buttonDisable');
         scissors.disabled = true;
         scissors.classList.add('buttonDisable');
-        body.appendChild(playAgain);
+        body.insertBefore(playAgain, author);
     } else if (computerCount === 5) { 
         description.textContent = 'COMPUTER WINS!';
         description.classList.add('winnerComputer');
@@ -154,7 +163,7 @@ buttons.forEach(button => button.addEventListener('click', () => {
         paper.classList.add('buttonDisable');
         scissors.disabled = true;
         scissors.classList.add('buttonDisable');
-        body.appendChild(playAgain);
+        body.insertBefore(playAgain, author);
     }
 }));
 
