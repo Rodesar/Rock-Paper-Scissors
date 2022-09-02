@@ -1,5 +1,3 @@
-window.alert('You are going to play "Rock, Paper or Scissors" against the computer! \n\n The first player to reach 5 points is the winner of the match. \n\n Click "OK" to begin');
-
 function getComputerChoice() {
     const options = ['Rock', 'Paper', 'Scissors'];
     return options[Math.floor(Math.random() * options.length)]; 
@@ -46,6 +44,9 @@ const body = document.querySelector('body');
 const buttonContainer = document.createElement('div');
 buttonContainer.classList.add('buttonContainer');
 
+const title = document.createElement('div');
+title.textContent = 'ROCK, PAPER OR SCISSORS!';
+
 const score = document.createElement('div');
 score.textContent = `Player Score: ${playerScore} - 
     Computer Score: ${computerScore}`;
@@ -73,6 +74,7 @@ computerSelected.classList.add('computerSelected');
 const result = document.createElement('div');
 result.classList.add('result');
 
+body.appendChild(title);
 body.appendChild(score);
 body.appendChild(select);
 body.appendChild(buttonContainer);
