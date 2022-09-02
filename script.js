@@ -43,6 +43,9 @@ let computerScore = 0;
 
 const body = document.querySelector('body');
 
+const buttonContainer = document.createElement('div');
+buttonContainer.classList.add('buttonContainer');
+
 const score = document.createElement('div');
 score.textContent = `Player Score: ${playerScore} - 
     Computer Score: ${computerScore}`;
@@ -72,9 +75,10 @@ result.classList.add('result');
 
 body.appendChild(score);
 body.appendChild(select);
-body.appendChild(rock);
-body.appendChild(paper);
-body.appendChild(scissors);
+body.appendChild(buttonContainer);
+buttonContainer.appendChild(rock);
+buttonContainer.appendChild(paper);
+buttonContainer.appendChild(scissors);
 body.appendChild(computerSelected);
 body.appendChild(result);
 
