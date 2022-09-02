@@ -46,22 +46,29 @@ const body = document.querySelector('body');
 const score = document.createElement('div');
 score.textContent = `Player Score: ${playerScore} - 
     Computer Score: ${computerScore}`;
+score.classList.add('score');
 
 const select = document.createElement('div');
 select.textContent = 'Select an option:';
+select.classList.add('select');
 
 const rock = document.createElement('button');
 rock.textContent = 'Rock';
+rock.classList.add('rock');
 
 const paper = document.createElement('button');
 paper.textContent = 'Paper';
+paper.classList.add('paper');
 
 const scissors = document.createElement('button');
 scissors.textContent = 'Scissors';
+scissors.classList.add('scissors');
 
 const computerSelected = document.createElement('div');
+computerSelected.classList.add('computerSelected');
 
 const result = document.createElement('div');
+result.classList.add('result');
 
 body.appendChild(score);
 body.appendChild(select);
