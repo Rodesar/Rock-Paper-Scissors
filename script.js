@@ -44,8 +44,13 @@ const body = document.querySelector('body');
 const buttonContainer = document.createElement('div');
 buttonContainer.classList.add('buttonContainer');
 
-const title = document.createElement('div');
+const title = document.createElement('h1');
 title.textContent = 'ROCK, PAPER OR SCISSORS!';
+title.classList.add('title');
+
+const description = document.createElement('div');
+description.textContent = 'First to score 5 points wins the game';
+description.classList.add('description');
 
 const score = document.createElement('div');
 score.textContent = `Player Score: ${playerScore} - 
@@ -75,6 +80,7 @@ const result = document.createElement('div');
 result.classList.add('result');
 
 body.appendChild(title);
+body.appendChild(description);
 body.appendChild(score);
 body.appendChild(select);
 body.appendChild(buttonContainer);
