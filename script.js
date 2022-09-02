@@ -100,6 +100,10 @@ scissors.classList.add('scissors');
 const result = document.createElement('div');
 result.classList.add('result');
 
+const playAgain = document.createElement('button');
+playAgain.textContent = 'Play Again';
+playAgain.classList.add('playAgain');
+
 body.appendChild(title);
 body.appendChild(description);
 body.appendChild(scoreContainer);
@@ -140,6 +144,7 @@ buttons.forEach(button => button.addEventListener('click', () => {
         paper.classList.add('buttonDisable');
         scissors.disabled = true;
         scissors.classList.add('buttonDisable');
+        body.appendChild(playAgain);
     } else if (computerCount === 5) { 
         description.textContent = 'COMPUTER WINS!';
         description.classList.add('winnerComputer');
@@ -149,5 +154,26 @@ buttons.forEach(button => button.addEventListener('click', () => {
         paper.classList.add('buttonDisable');
         scissors.disabled = true;
         scissors.classList.add('buttonDisable');
+        body.appendChild(playAgain);
     }
 }));
+
+playAgain.addEventListener('click', () => {
+    playerCount = 0;
+    computerCount = 0;
+    scoring.textContent = '0 - 0';
+    result.textContent = '';
+    playerSelected.textContent = '?';
+    computerSelected.textContent = '?';
+    description.textContent =
+        'First to score 5 points wins the game';
+    rock.disabled = false;
+    paper.disabled = false;
+    scissors.disabled = false;
+    rock.classList.remove('buttonDisable');
+    paper.classList.remove('buttonDisable');
+    scissors.classList.remove('buttonDisable');
+    description.classList.remove('winnerPlayer');
+    description.classList.remove('winnerComputer');
+    body.removeChild(playAgain);
+});
