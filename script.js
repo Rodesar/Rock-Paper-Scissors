@@ -63,15 +63,19 @@ containerPlayer.classList.add('containerPlayer');
 const containerComputer = document.createElement('div');
 containerComputer.classList.add('containerComputer');
 
+const scoring = document.createElement('div');
+scoring.textContent = '0 - 0';
+scoring.classList.add('scoring');
+
 const scoreContainer = document.createElement('div');
 scoreContainer.classList.add('scoreContainer');
 
 const playerScore = document.createElement('div');
-playerScore.textContent = 'Player: 0';
+playerScore.textContent = 'Player';
 playerScore.classList.add('playerScore');
 
 const computerScore = document.createElement('div');
-computerScore.textContent = 'Computer: 0';
+computerScore.textContent = 'Computer';
 computerScore.classList.add('computerScore');
 
 const select = document.createElement('div');
@@ -100,6 +104,7 @@ body.appendChild(title);
 body.appendChild(description);
 body.appendChild(scoreContainer);
 scoreContainer.appendChild(containerPlayer);
+scoreContainer.appendChild(scoring);
 scoreContainer.appendChild(containerComputer);
 containerPlayer.appendChild(playerSelected);
 containerPlayer.appendChild(playerScore);
@@ -125,8 +130,7 @@ buttons.forEach(button => button.addEventListener('click', () => {
         === 'You Win') playerCount += 1;
     if (playRound(playerSelection, computerSelection).slice(0, 8)
         === 'You Lose') computerCount += 1;
-    playerScore.textContent = `Player: ${playerCount}`;
-    computerScore.textContent = `Computer: ${computerCount}`;
+    scoring.textContent = `${playerCount} - ${computerCount}`
     if (playerCount === 5) {
         alert('PLAYER WINS!');
     } else if (computerCount === 5) { 
