@@ -108,8 +108,8 @@ const author = document.createElement('div');
 author.classList.add('author');
 const authorLink = document.createElement('a');
 author.textContent = 'By ';
-authorLink.setAttribute('href', `https://github.com/rolastic`);
-authorLink.textContent = 'rolastic';
+authorLink.setAttribute('href', `https://github.com/roesparc`);
+authorLink.textContent = 'roesparc';
 
 body.appendChild(title);
 body.appendChild(description);
