@@ -1,6 +1,10 @@
+:root {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
-    margin: 0;
-    height: 100vh;
+    margin-bottom: 6rem;
     background-color: rgb(28, 34, 46);
     font-family: 'Armata', sans-serif;
     color: rgb(255, 196, 107);
@@ -148,9 +152,8 @@ button:active {
 }
 
 .author {
-    position: fixed;
-    bottom: 0;
-    margin-bottom: 10px;
+    position: absolute;
+    bottom: 1rem;
     font-size: 18px;
     font-weight: bold;
 }
